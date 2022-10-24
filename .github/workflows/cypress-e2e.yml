@@ -19,7 +19,6 @@ jobs:
                   install-command: yarn install --immutable, yarn cypress install
                   command: yarn cy:e2e
                   command-prefix: yarn dlx
-                  headless: true
 
             - name: upload failure screenshots
               uses: actions/upload-artifact@v2
