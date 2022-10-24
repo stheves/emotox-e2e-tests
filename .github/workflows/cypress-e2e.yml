@@ -14,8 +14,9 @@ jobs:
             - name: Cypress tests
               uses: cypress-io/github-action@v4
               with:
-                  working-directory: ./
-                  build: yarn cy:e2e
+                  browser: chrome
+                  install-command: yarn install --immutable
+                  command-prefix: yarn dlx
 
             - name: upload failure screenshots
               uses: actions/upload-artifact@v2
