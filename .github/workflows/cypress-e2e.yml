@@ -17,7 +17,7 @@ jobs:
               with:
                   browser: chrome
                   install-command: yarn install --immutable
-                  build: yarn cypress install
+                  build: npm i -D cypress
                   command-prefix: yarn dlx
 
             - name: upload failure screenshots
