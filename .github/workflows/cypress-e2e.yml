@@ -16,7 +16,7 @@ jobs:
               uses: cypress-io/github-action@v4
               with:
                   browser: chrome
-                  install-command: yarn install --immutable --immutable-cache
+                  install-command: yarn install --immutable
                   command: yarn cy:e2e
 
             - name: upload failure screenshots
