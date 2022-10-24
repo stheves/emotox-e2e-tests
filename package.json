@@ -10,14 +10,12 @@
         "cy:e2e": "cypress run  --spec  'cypress/e2e/**/*'",
         "cy:docker:firefox": "./cy-run.sh --browser firefox"
     },
-    "dependencies": {
-        "cypress": "^10.10.0"
-    },
     "devDependencies": {
         "@testing-library/cypress": "^8.0.3",
         "@types/cypress": "^1.1.3",
         "@types/node": "^18.11.4",
         "@types/prettier": "^2.7.1",
+        "cypress": "^10.10.0",
         "prettier": "^2.7.1",
         "typescript": "^4.8.4"
     },

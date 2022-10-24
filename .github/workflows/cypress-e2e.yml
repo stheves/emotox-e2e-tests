@@ -14,8 +14,24 @@ jobs:
             - name: Cypress tests
               uses: cypress-io/github-action@v2
               with:
-                  working-directory: ./
-                  build: yarn cy:e2e
+                  browser: chrome
+                  headless: true
+                  #   working-directory: ./
+                  #   build: yarn cy:e2e
+
+            - name: upload failure screenshots
+              uses: actions/upload-artifact@v2
+              if: failure()
+              with:
+                  name: cypress-screenshots
+                  path: cypress/screenshots
+
+            - name: upload failure videos
+              uses: actions/upload-artifact@v2
+              if: failure()
+              with:
+                  name: cypress-videos
+                  path: cypress/videos
 
     # basic-on-windows-v10:
     #   runs-on: windows-latest
