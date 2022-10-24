@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-        "outDir": "cypress/e2e/build",
         "target": "es5",
         "module": "ESNext",
         "lib": ["es6", "dom"],
