@@ -16,9 +16,7 @@ jobs:
               uses: cypress-io/github-action@v4
               with:
                   browser: chrome
-                  install-command: |
-                      yarn install --immutable
-                      yarn cypress install
+                  install-command: yarn install --immutable, yarn cypress install
                   command: yarn cy:e2e
                   command-prefix: yarn dlx
                   headless: true
