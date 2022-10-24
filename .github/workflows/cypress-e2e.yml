@@ -1,4 +1,4 @@
-name: cypress-e2e
+name: Cypress E2E Tests
 on:
     push:
         branches:
@@ -7,16 +7,17 @@ on:
 jobs:
     basic-ubuntu-20-v10:
         runs-on: ubuntu-20.04
+        name: E2E on Chrome
         steps:
             - name: Checkout
               uses: actions/checkout@v2
 
             - name: Cypress tests
-              uses: cypress-io/github-action@v4
+              uses: cypress-io/github-action@v4.x.x
               with:
                   browser: chrome
-                  install-command: yarn install --immutable
-                  command-prefix: yarn dlx
+                  install-command: yarn install --immutable --immutable-cache
+                  command: yarn cy:e2e
 
             - name: upload failure screenshots
               uses: actions/upload-artifact@v2
