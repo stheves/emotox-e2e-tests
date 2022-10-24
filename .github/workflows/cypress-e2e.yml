@@ -12,12 +12,10 @@ jobs:
               uses: actions/checkout@v2
 
             - name: Cypress tests
-              uses: cypress-io/github-action@v2
+              uses: cypress-io/github-action@v4
               with:
-                  browser: chrome
-                  headless: true
                   working-directory: ./
-                  build: yarn install & yarn cy:e2e
+                  build: yarn cy:e2e
 
             - name: upload failure screenshots
               uses: actions/upload-artifact@v2
