@@ -1,0 +1,28 @@
+## compiled output
+tmp
+dist
+
+## dependencies
+node_modules
+node
+
+## misc
+.sass-cache
+connect.lock
+coverage
+yarn-error.log
+typings
+
+## yarn v2 (no zero installs)
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+## cypress
+cypress/videos
+test-results.xml
+
+

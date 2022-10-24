@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "outDir": "cypress/e2e/build",
+        "target": "es5",
+        "module": "commonjs",
+        "lib": ["es6", "dom"],
+        "strict": true,
+        "noEmit": true,
+        "skipLibCheck": true,
+        "sourceMap": false,
+        "allowJs": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "types": ["cypress", "@testing-library/cypress", "node"]
+    },
+    "include": ["**/*.ts"]
+}
