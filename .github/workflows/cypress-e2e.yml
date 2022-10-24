@@ -16,8 +16,8 @@ jobs:
               with:
                   browser: chrome
                   headless: true
-                  #   working-directory: ./
-                  #   build: yarn cy:e2e
+                  working-directory: ./
+                  build: yarn install & yarn cy:e2e
 
             - name: upload failure screenshots
               uses: actions/upload-artifact@v2
