@@ -29,6 +29,7 @@ jobs:
 
             - name: Upload failure screenshots
               uses: actions/upload-artifact@v2
+              if: failure()
               with:
                   name: lighthouse-report
                   path: build/cypress/lhreport.html
