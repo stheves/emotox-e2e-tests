@@ -1,8 +1,10 @@
 name: Cypress E2E Tests
 on:
+    schedule:
+        - cron: '0 1 * * *'
     push:
-        branches:
-            - 'main'
+        # branches:
+        #     - 'main'
     pull_request:
 jobs:
     basic-ubuntu-20-v10:
