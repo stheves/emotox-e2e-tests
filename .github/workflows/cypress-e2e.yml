@@ -19,6 +19,7 @@ jobs:
                   install-command: yarn install --immutable
                   build: npm i -D cypress
                   command-prefix: yarn dlx
+                  record: true
 
             - name: upload failure screenshots
               uses: actions/upload-artifact@v2
