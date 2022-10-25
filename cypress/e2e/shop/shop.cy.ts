@@ -1,4 +1,4 @@
-describe('E-Moto-X Shop', () => {
+describe('Shop Tests', () => {
     before(() => {
         cy.visit('https://www.e-moto-x.de/shop/');
         cy.clickCookiesBtn('Akzeptieren');
@@ -14,7 +14,7 @@ describe('E-Moto-X Shop', () => {
             .should('be.visible');
     });
 
-    it('passes the lighthouse audit', () => {
+    it('passes the audits', () => {
         cy.lighthouse();
         cy.pa11y({ threshold: 999 });
     });

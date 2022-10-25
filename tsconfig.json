@@ -10,7 +10,13 @@
         "allowJs": true,
         "esModuleInterop": true,
         "moduleResolution": "node",
-        "types": ["cypress", "@testing-library/cypress", "node"]
+        "types": [
+            "cypress",
+            "@testing-library/cypress",
+            "node",
+            "@cypress-audit/lighthouse",
+            "@cypress-audit/pa11y"
+        ]
     },
     "include": ["**/*.ts"]
 }

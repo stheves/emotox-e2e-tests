@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { defineConfig } = require('cypress');
 const { lighthouse, prepareAudit } = require('@cypress-audit/lighthouse');
-const ReportGenerator = require('lighthouse/lighthouse-core/report/report-generator');
+const ReportGenerator = require('lighthouse/report/generator/report-generator');
 const { pa11y } = require('@cypress-audit/pa11y');
 
 module.exports = defineConfig({
@@ -19,6 +19,7 @@ module.exports = defineConfig({
 
             on('task', {
                 lighthouse: lighthouse(lighthouseReport => {
+                    fs.mkdirSync('build/cypress', { recursive: true });
                     fs.writeFileSync(
                         'build/cypress/lhreport.html',
                         ReportGenerator.generateReport(

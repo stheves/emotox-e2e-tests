@@ -1041,6 +1041,7 @@ __metadata:
     "@types/node": ^18.11.4
     "@types/prettier": ^2.7.1
     cypress: ^10.10.0
+    lighthouse: ^9.6.7
     prettier: ^2.7.1
     typescript: ^4.8.4
   dependenciesMeta:
@@ -1993,7 +1994,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lighthouse@npm:^9.5.0":
+"lighthouse@npm:^9.5.0, lighthouse@npm:^9.6.7":
   version: 9.6.7
   resolution: "lighthouse@npm:9.6.7"
   dependencies:
