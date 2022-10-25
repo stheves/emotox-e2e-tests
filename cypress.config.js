@@ -1,5 +1,7 @@
+const fs = require('fs');
 const { defineConfig } = require('cypress');
 const { lighthouse, prepareAudit } = require('@cypress-audit/lighthouse');
+const ReportGenerator = require('lighthouse/lighthouse-core/report/report-generator');
 const { pa11y } = require('@cypress-audit/pa11y');
 
 module.exports = defineConfig({
@@ -9,10 +11,22 @@ module.exports = defineConfig({
         setupNodeEvents(on, config) {
             on('before:browser:launch', (browser = {}, launchOptions) => {
                 prepareAudit(launchOptions);
+                if (browser.name === 'chrome' && browser.isHeadless) {
+                    launchOptions.args.push('--disable-gpu');
+                    return launchOptions;
+                }
             });
 
             on('task', {
-                lighthouse: lighthouse(),
+                lighthouse: lighthouse(lighthouseReport => {
+                    fs.writeFileSync(
+                        'build/cypress/lhreport.html',
+                        ReportGenerator.generateReport(
+                            lighthouseReport.lhr,
+                            'html',
+                        ),
+                    );
+                }),
                 pa11y: pa11y(console.log.bind(console)),
             });
         },

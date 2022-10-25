@@ -25,14 +25,20 @@ jobs:
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORDING_KEY }}
                   # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: upload failure screenshots
+            - name: Upload failure screenshots
+              uses: actions/upload-artifact@v2
+              with:
+                  name: lighthouse-report
+                  path: build/cypress/lhreport.html
+
+            - name: Upload failure screenshots
               uses: actions/upload-artifact@v2
               if: failure()
               with:
                   name: cypress-screenshots
                   path: cypress/screenshots
 
-            - name: upload failure videos
+            - name: Upload failure videos
               uses: actions/upload-artifact@v2
               if: failure()
               with:
