@@ -20,7 +20,7 @@ jobs:
                   browser: chrome
                   install-command: yarn install --immutable
                   build: npm i -D cypress
-                  command-prefix: yarn dlx
+                  command-prefix: yarn
                   record: true
               env:
                   # pass the Dashboard record key as an environment variable
