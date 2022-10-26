@@ -1,6 +1,6 @@
 describe('Shop Page', () => {
     beforeEach(() => {
-        cy.visit('https://www.e-moto-x.de/shop/');
+        cy.visit('/shop');
         cy.clickCookiesBtn('Akzeptieren');
     });
 
