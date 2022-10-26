@@ -36,7 +36,7 @@ jobs:
               uses: actions/upload-artifact@v2
               with:
                   name: lighthouse-report
-                  path: build/cypress/test-results.xml
+                  path: build/cypress/lhreport.html
 
             - name: Upload failure screenshots
               uses: actions/upload-artifact@v2
