@@ -30,10 +30,12 @@ jobs:
             - name: Lighthouse Report
               id: html_preview
               uses: pavi2410/html-preview-action@v2
+              if: failure() || success()
               with:
                   html_file: 'build/cypress/lhreport.html'
 
             - uses: dorny/test-reporter@v1
+              if: failure() || success()
               with:
                   artifact: test-results
                   name: Cypress Report
