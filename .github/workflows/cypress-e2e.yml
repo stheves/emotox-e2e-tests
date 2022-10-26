@@ -35,7 +35,7 @@ jobs:
                   html_file: 'build/cypress/lhreport.html'
 
             - name: Print Lighthouse Report URL
-              run: echo "${steps.html_preview.outputs.url}"
+              run: echo "${{ steps.html_preview.outputs.url }}"
 
             - name: Publish Test Report
               uses: mikepenz/action-junit-report@v3
