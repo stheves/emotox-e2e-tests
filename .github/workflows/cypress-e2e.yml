@@ -27,7 +27,20 @@ jobs:
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORDING_KEY }}
                   # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Upload failure screenshots
+            - name: Lighthouse Report
+              id: html_preview
+              uses: pavi2410/html-preview-action@v2
+              with:
+                  html_file: 'build/cypress/lhreport.html'
+
+            - uses: dorny/test-reporter@v1
+              with:
+                  artifact: test-results
+                  name: Cypress Report
+                  path: 'build/cypress/test-results.xml'
+                  reporter: jest-junit
+
+            - name: Upload Lighthouse reports
               uses: actions/upload-artifact@v2
               if: failure()
               with:

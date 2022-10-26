@@ -1,5 +1,5 @@
 describe('Shop Page', () => {
-    before(() => {
+    beforeEach(() => {
         cy.visit('https://www.e-moto-x.de/shop/');
         cy.clickCookiesBtn('Akzeptieren');
     });
@@ -8,14 +8,18 @@ describe('Shop Page', () => {
         cy.get('h1').should('have.text', 'Shop');
     });
 
-    it('finds a product in the list successfully', () => {
+    it('displays the product list successfully and navigates to the details', () => {
         cy.get('.product-inner')
             .contains('SUR-RON LIGHT BEE L1E X')
-            .should('be.visible');
+            .should('be.visible')
+            .click();
+        cy.location('pathname').should(
+            'eq',
+            '/produkt/sur-ron-light-bee-l1e-x/',
+        );
     });
 
-    it('passes the audits', () => {
-        cy.lighthouse();
-        cy.pa11y({ threshold: 999 });
+    it('adds a product to the cart successfully', () => {
+        cy.get('li.product-type-simple a.ajax_add_to_cart').first().click();
     });
 });

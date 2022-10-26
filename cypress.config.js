@@ -33,6 +33,9 @@ module.exports = defineConfig({
         },
     },
     reporter: 'junit',
+    reporterOptions: {
+        mochaFile: 'build/cypress/test-results.xml',
+    },
     lighthouse: {
         thresholds: {
             performance: 0,
