@@ -28,7 +28,6 @@ jobs:
                   # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Lighthouse Report
-              id: html_preview
               uses: pavi2410/html-preview-action@v2
               if: always()
               with:
@@ -39,13 +38,6 @@ jobs:
               if: always() # always run even if the previous step fails
               with:
                   report_paths: 'build/cypress/test-results.xml'
-
-            - name: Upload Lighthouse reports
-              uses: actions/upload-artifact@v2
-              if: failure()
-              with:
-                  name: lighthouse-report
-                  path: build/cypress/lhreport.html
 
             - name: Upload failure screenshots
               uses: actions/upload-artifact@v2
