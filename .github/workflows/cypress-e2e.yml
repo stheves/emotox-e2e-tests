@@ -34,6 +34,7 @@ jobs:
 
             - name: Upload Lighthouse Report
               uses: actions/upload-artifact@v2
+              if: always() # always run even if the previous step fails
               with:
                   name: lighthouse-report
                   path: build/cypress/lhreport.html
