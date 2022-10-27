@@ -22,7 +22,9 @@ describe('Shop Page', () => {
     it('adds a product to the cart successfully', () => {
         cy.get('li.product-type-simple a.ajax_add_to_cart').first().click();
         cy.get('a.added_to_cart').should('be.visible');
+        cy.get('.wcmenucart').realHover();
 
+        cy.get('.widget_shopping_cart').should('be.visible');
         cy.get('.widget_shopping_cart .cart_item').should(
             'have.length',
             2, // one for mobile and one for desktop

@@ -832,6 +832,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cypress-real-events@npm:^1.7.2":
+  version: 1.7.2
+  resolution: "cypress-real-events@npm:1.7.2"
+  peerDependencies:
+    cypress: ^4.x || ^5.x || ^6.x || ^7.x || ^8.x || ^9.x || ^10.x
+  checksum: d5b21592c14a2554a050fcc733d0a848382cb3d77360194312c91b8de52d4c356e2dbbfbca5ad9f36ad2619c08b61c86f847e25f35385003dec021f0202a0847
+  languageName: node
+  linkType: hard
+
 "cypress@npm:^10.10.0":
   version: 10.10.0
   resolution: "cypress@npm:10.10.0"
@@ -1041,6 +1050,7 @@ __metadata:
     "@types/node": ^18.11.4
     "@types/prettier": ^2.7.1
     cypress: ^10.10.0
+    cypress-real-events: ^1.7.2
     lighthouse: ^9.6.7
     prettier: ^2.7.1
     typescript: ^4.8.4
