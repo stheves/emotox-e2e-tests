@@ -8,6 +8,8 @@ module.exports = defineConfig({
     projectId: 'up1ey2',
     e2e: {
         baseUrl: 'https://www.e-moto-x.de',
+        viewportWidth: 1100,
+        viewportHeight: 740,
         chromeWebSecurity: false,
         setupNodeEvents(on, config) {
             on('before:browser:launch', (browser = {}, launchOptions) => {
