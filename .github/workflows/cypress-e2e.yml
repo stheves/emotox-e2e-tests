@@ -1,4 +1,4 @@
-name: Cypress E2E Tests
+name: E-Moto-X E2E tests
 on:
     schedule:
         - cron: '0 1 * * *'
