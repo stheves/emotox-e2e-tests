@@ -6,7 +6,7 @@ declare global {
     }
 }
 
-export const clickCookiesBtn = (label: string) => {
+export const clickCookiesBtn = (label: string): void => {
     cy.get('#usercentrics-root', { timeout: 10000 })
         .shadow()
         .find('#uc-center-container')

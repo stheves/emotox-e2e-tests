@@ -6,8 +6,8 @@
         "strict": true,
         "noEmit": true,
         "skipLibCheck": true,
-        "sourceMap": false,
-        "allowJs": true,
+        "sourceMap": true,
+        "allowJs": false,
         "esModuleInterop": true,
         "moduleResolution": "node",
         "types": [
