@@ -21,11 +21,11 @@ jobs:
                       '.yarn/cache'
                   key: ${{ runner.os }}-cache-${{ hashFiles('**/yarn.lock') }}
 
-            - name: Cypress info
-              run: yarn cypress info & yarn cypress cache list --size
-
             - name: Yarn install
               run: yarn install --immutable
+
+            - name: Cypress info
+              run: yarn cypress info & yarn cypress cache list --size
 
             - name: Cypress tests
               run: yarn cy:e2e --record --browser chrome
