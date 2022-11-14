@@ -14,17 +14,35 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v2
 
-            - name: Cypress tests
-              uses: cypress-io/github-action@v4
+            - uses: actions/cache@v2
               with:
-                  browser: chrome
-                  install-command: yarn install --immutable
-                  build: npm i -D cypress
-                  command-prefix: yarn dlx
-                  record: true
+                  path: |
+                      '~/.cache/Cypress'
+                      '.yarn/cache'
+                  key: ${{ runner.os }}-cache-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Cypress info
+              run: yarn cypress info & yarn cypress cache list --size
+
+            - name: Yarn install
+              run: yarn install --immutable
+
+            - name: Cypress tests
+              run: yarn cy:e2e --record --browser chrome
               env:
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORDING_KEY }}
                   # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            # - name: Cypress install
+            #   run: yarn dlx cypress
+
+            # - name: Cypress tests
+            #   uses: cypress-io/github-action@v4
+            #   with:
+            #       browser: chrome
+            #       install-command: yarn install --immutable
+            #       build: npm i -D cypress
+            #       command-prefix: yarn dlx
 
             - name: Publish Test Report
               uses: mikepenz/action-junit-report@v3
