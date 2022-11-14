@@ -27,7 +27,7 @@ describe('Shop Page', () => {
         cy.get('.widget_shopping_cart').should('be.visible');
         cy.get('.widget_shopping_cart .cart_item').should(
             'have.length',
-            2, // one for mobile and one for desktop
+            3, // one for mobile and one for desktop
         );
     });
 });
