@@ -14,12 +14,14 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v2
 
+            - id: find-yarn-cache-folder
+              name: Find Yarn's cache folder
+              run: echo "::set-output name=path::$(yarn config get cacheFolder)"
+
             - uses: actions/cache@v2
               with:
-                  path: |
-                      '~/.cache/Cypress'
-                      '.yarn/cache'
-                  key: ${{ runner.os }}-cache-${{ hashFiles('**/yarn.lock') }}
+                  path: ${{ steps.find-yarn-cache-folder.outputs.path }}
+                  key: ${{ runner.os }}-cache-${{ hashFiles('yarn.lock') }}
 
             - name: Yarn install
               run: yarn install --immutable
