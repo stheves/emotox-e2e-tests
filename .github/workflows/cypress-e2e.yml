@@ -27,7 +27,7 @@ jobs:
               run: yarn install --immutable
 
             - name: Cypress info
-              run: yarn cypress info & yarn cypress cache list --size
+              run: yarn cypress cache list --size
 
             - name: Cypress tests
               run: yarn cy:e2e --record --browser chrome
