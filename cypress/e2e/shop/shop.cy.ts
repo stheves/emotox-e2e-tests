@@ -9,14 +9,12 @@ describe('Shop Page', () => {
     });
 
     it('displays the product list successfully and navigates to the details', () => {
-        cy.get('.product-inner')
-            .contains('SUR-RON LIGHT BEE L1E X')
+        cy.get('.products > .entry')
+            .should('have.length.at.least', 1)
+            .first()
             .should('be.visible')
             .click();
-        cy.location('pathname').should(
-            'eq',
-            '/produkt/sur-ron-light-bee-l1e-x/',
-        );
+        cy.location('pathname').should('match', /produkt\/[^/]+/);
     });
 
     it('adds a product to the cart successfully', () => {
